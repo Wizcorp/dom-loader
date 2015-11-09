@@ -1,0 +1,11 @@
+{
+  "name": "dom-loader",
+  "version": "1.0.0",
+  "description": "HTML DOM element loader for Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ron Korving <rkorving@wizcorp.jp>",
+  "license": "MIT"
+}
