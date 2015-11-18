@@ -14,11 +14,28 @@ module.exports = function (str) {
 	var out = [str];
 	out.push('var elm = document.createElement(' + JSON.stringify(tag) + ');');
 
+	// extract attributes
+
+	var attr = Object.keys(query).filter(function (key) {
+		return key.indexOf('attr.') === 0;
+	});
+
+	attr.forEach(function (key) {
+		var name = key.substring(5);
+		var value = query[key];
+
+		out.push('elm.setAttribute(' + JSON.stringify(name) + ', ' + JSON.stringify(value) + ');');
+	});
+
+	// set element body
+
 	if (asText) {
 		out.push('elm.appendChild(document.createTextNode(module.exports));');
 	} else {
 		out.push('elm.innerHTML = module.exports;');
 	}
+
+	// re-assign module.exports
 
 	out.push('module.exports = elm;');
 
