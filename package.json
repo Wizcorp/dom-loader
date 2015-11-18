@@ -1,6 +1,6 @@
 {
   "name": "dom-loader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "HTML DOM element loader for Webpack",
   "main": "index.js",
   "scripts": {
@@ -16,8 +16,7 @@
     "webpack",
     "loader",
     "dom",
-    "element",
-    "div"
+    "element"
   ],
   "bugs": {
     "url": "https://github.com/Wizcorp/dom-loader/issues"
