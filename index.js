@@ -10,21 +10,21 @@ module.exports = function (str) {
 	var query = loaderUtils.parseQuery(this.query);
 	var tag = query.tag || 'div';
 	var asText = query.asText || textTags.indexOf(tag) !== -1;
+	var attrs = query.attrs || [];
 
 	var out = [str];
 	out.push('var elm = document.createElement(' + JSON.stringify(tag) + ');');
 
 	// extract attributes
 
-	var attr = Object.keys(query).filter(function (key) {
-		return key.indexOf('attr.') === 0;
-	});
+	attrs.forEach(function (attr) {
+		var colon = attr.indexOf(':');
+		if (colon !== -1) {
+			var name = attr.substring(0, colon);
+			var value = attr.substring(colon + 1);
 
-	attr.forEach(function (key) {
-		var name = key.substring(5);
-		var value = query[key];
-
-		out.push('elm.setAttribute(' + JSON.stringify(name) + ', ' + JSON.stringify(value) + ');');
+			out.push('elm.setAttribute(' + JSON.stringify(name) + ', ' + JSON.stringify(value) + ');');
+		}
 	});
 
 	// set element body

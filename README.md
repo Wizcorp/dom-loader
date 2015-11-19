@@ -21,9 +21,9 @@ The dom-loader depends on the previous loader exporting a string.
 ## Options
 
 * tag (string): the tag name the container element should have (default: div)
+* attrs (array): attributes to set on the element (name:value) (eg: `attrs[]=type:text/css`).
 * asText (bool): whether or not to treat the content as text or as HTML. The default
   is `true` for `title`, `style` and `script` tags. It is `false` otherwise.
-* attr.NAME (string): an attribute to set on the element (eg: `attr.type=text/css`).
 
 ## Example
 
